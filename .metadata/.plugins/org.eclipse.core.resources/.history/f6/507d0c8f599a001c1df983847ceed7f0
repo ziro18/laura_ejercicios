@@ -1,0 +1,69 @@
+package ar.edu.unlam.pb1.final0ctubre;
+
+public class Usuario {
+	private String nombre;
+	private int edad;
+	private ListaDeReproduccion[] miListaDeReproduccion;
+	
+	
+	
+	public Usuario() {
+		miListaDeReproduccion = new ListaDeReproduccion[10];
+	}
+
+
+	
+
+	public ListaDeReproduccion[] getMiListaDeReproduccion() {
+		return miListaDeReproduccion;
+	}
+
+
+
+	public boolean agregarNuevaLista(String nombreDeLaLista) {
+		
+		return true;
+	}
+	
+	public String verMiLIstaDeReproduccion() {
+		return "_";
+	}
+	
+	public String reproducirLista(int numeroDeLista) {
+		return "_";
+	}
+
+	
+	
+	
+	
+	
+	
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+
+	public int getEdad() {
+		return edad;
+	}
+
+
+
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+	
+	
+	
+	
+	
+}

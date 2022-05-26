@@ -1,0 +1,50 @@
+package ar.edu.unlam.pb1.final0ctubre;
+
+import java.util.Arrays;
+
+public class ListaDeReproduccion {
+	private String nombre;
+	private Cancion[] canciones;
+	int contador = 20;
+	int iterador=0;
+	public ListaDeReproduccion(String nombre) {
+		this.nombre = nombre;
+		this.canciones = new Cancion[contador];
+	}
+
+	public boolean agregarCancion(Cancion nueva) {
+		boolean resultado = false;
+		
+		if(canciones[iterador]==null) {
+			canciones[iterador]=nueva;
+			iterador++;
+			
+			System.out.println("se agrego correctamente");
+			resultado=true;
+			return resultado;
+		}
+		else {
+			System.out.println("no se puede agregar ");
+			resultado=false;
+			return resultado;
+		}
+		
+		
+	
+			
+
+		
+
+	}
+
+	public boolean eliminarCancion(String nombreDeLaCancion) {
+		return false;
+	}
+
+	@Override
+	public String toString() {
+		return "ListaDeReproduccion [nombre=" + nombre + ", canciones=" + Arrays.toString(canciones) + ", contador="
+				+ contador + "]";
+	}
+
+}
