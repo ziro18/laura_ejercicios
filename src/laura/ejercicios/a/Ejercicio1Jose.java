@@ -6,17 +6,20 @@ import java.util.stream.Collectors;
 public class Ejercicio1Jose {
 
     public static void main(String[] args) {
-        int [] array = { 1, 3, 4, 5, 6, 1, 3};
+//        int [] array = { 1, 3, 4, 5, 6, 1, 3};
+        int [] array = { 1, 3, 1};
 //        int [] array = {};
-
-        logger("Delete Duplicates 1");
-        showCollection(Arrays.stream(deleteDuplicates(array)).boxed().collect(Collectors.toList()));
-        logger("Delete Duplicates 2");
-        showCollection(Arrays.stream(deleteDuplicates2(array)).boxed().collect(Collectors.toList()));
-        logger("Delete Duplicates 3");
-        showCollection(Arrays.stream(deleteDuplicates3(array)).boxed().collect(Collectors.toList()));
-        logger("Delete Duplicates 4");
-        showCollection(Arrays.stream(deleteDuplicates4(array)).boxed().collect(Collectors.toList()));
+//
+//        logger("Delete Duplicates 1");
+//        showCollection(Arrays.stream(deleteDuplicates(array)).boxed().collect(Collectors.toList()));
+//        logger("Delete Duplicates 2");
+//        showCollection(Arrays.stream(deleteDuplicates2(array)).boxed().collect(Collectors.toList()));
+//        logger("Delete Duplicates 3");
+//        showCollection(Arrays.stream(deleteDuplicates3(array)).boxed().collect(Collectors.toList()));
+//        logger("Delete Duplicates 4");
+//        showCollection(Arrays.stream(deleteDuplicates4(array)).boxed().collect(Collectors.toList()));
+        logger("Delete Duplicates 5");
+        showCollection(Arrays.stream(deleteDuplicates5(array)).boxed().collect(Collectors.toList()));
     }
 
     private static int[] deleteDuplicates(int[] array) {
@@ -30,7 +33,7 @@ public class Ejercicio1Jose {
     }
 
     private static int[] deleteDuplicates3(int[] array) {
-        HashSet<Integer> set = new HashSet<>();
+        Set<Integer> set = new HashSet<>();
 
         for (int i = 0; i < array.length; i++) {
             set.add(array[i]);
@@ -62,6 +65,39 @@ public class Ejercicio1Jose {
 
         return integers.stream().mapToInt(Integer::intValue).toArray();
     }
+    private static int[] deleteDuplicates5(int[] array) {
+        int contador = 0;
+
+        for (int i = 0; i < array.length; i++) {
+
+            for (int j = 1 + i ; j < array.length; j++) {
+                if (array[i] == array[j]) {
+                    contador++;
+                }
+            }
+        }
+
+        int[] arrayResultado = new int[array.length - contador];
+        int posicion = 0;
+        boolean flag;
+
+        for (int i = 0; i < array.length; i++) {
+            flag = true;
+
+            for (int j = 1 + i ; j < array.length; j++) {
+                if (array[i] == array[j]) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) {
+                arrayResultado[posicion] = array[i];
+                posicion++;
+            }
+        }
+         return arrayResultado;
+    }   
+   
     private static void showCollection(Collection colection) {
         colection.forEach(System.out::println);
     }
